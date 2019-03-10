@@ -1,3 +1,12 @@
+body {
+    background: url('https://thenypost.files.wordpress.com/2018/07/railroad-tracks.jpg?quality=90&strip=all') no-repeat center center/cover;
+}
+
+.jumbotron {
+    color: #fff;
+    background-color: rgba(3, 3, 3, .7) !important; 
+}
+
 button {
     
     margin-bottom: .75rem;
