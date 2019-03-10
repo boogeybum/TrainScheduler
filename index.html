@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Train Scheduler</title>
+    
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
+    
 </head>
 <body>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <div class="row">
-                <h1 class="display-4"><i class="fas fa-train"></i> Train Scheduler <i class="fas fa-train"></i></h1>
+                <h1 class="display-4"><i class="fas fa-train"></i> Train Scheduler </i></h1>
             </div>
             <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et omnis animi ut ea alias. Eaque error, laboriosam ex porro dolores iusto dicta earum doloremque quia, eligendi eos, dignissimos quaerat harum?</p>
             <hr class="my-4">
@@ -22,6 +24,71 @@
         </div>
     </div>
 
+    <!-- display train table with scheduled arrival times pulling data from firebase -->
+    <div class="container">
+        <div class="card">
+            <div class="card-header text-white bg-primary mb-3">
+                Current Train Schedule
+            </div>
+            <!-- add table for train schedule pulling data from firebase -->
+            <div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <!-- <th scope="col">#</th> -->
+                        <th scope="col">Train Name</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Frequency (min)</th>
+                        <th scope="col">Next Arrival</th>
+                        <th scope="col">Minutes Away</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <!-- <th scope="row">1</th> -->
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>30</td>
+                        <td>2:30pm</td>
+                        <td>25</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!-- form to submit train info to firebase and update train table schedule -->
+    <div class="container">
+        <div class="card">
+        <div class="card-header  text-white bg-primary mb-3">
+            Add Train
+        </div>
+            <form class="container">
+                <div class="form-group">
+                    <label for="trainName">Train Name</label>
+                    <input type="text" class="form-control" id="trainName" placeholder="Train Name">
+                </div>
+                <div class="form-group">
+                    <label for="destination">Destination</label>
+                    <input type="text" class="form-control" id="destination" placeholder="Destination">
+                </div>
+                <div class="form-group">
+                    <label for="firstTrainTime">First Train Time (HH:mm - Military Time)</label>
+                    <input type="text" class="form-control" id="firstTrainTime" placeholder="First Train Time">
+                </div>
+                <div class="form-group">
+                    <label for="frequency">Frequency (min)</label>
+                    <input type="text" class="form-control" id="frequency" placeholder="Frequency in Minutes">
+                </div>
+                
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                
+            </form>
+        </div>
+    </div>
+    <br>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
