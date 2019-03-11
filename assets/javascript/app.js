@@ -1,6 +1,6 @@
 // declare variables
-// var currentTime = moment().format('dddd MMMM Do YYYY');
-var currentTime = moment().format('dddd MMMM Do YYYY, h:mm:ss a');
+var currentTime = moment().format('dddd MMMM Do YYYY');
+// var currentTime = moment().format('dddd MMMM Do YYYY, h:mm:ss a');
 
 var config = {
     apiKey: "AIzaSyCwPl3wdsmMNBeaWVuZ8DUq40tfGZReWcc",
@@ -26,7 +26,7 @@ $('#submitNewTrain').on('click', function(event) {
     // variables for holding user input
     var newTrainName = $('#trainName').val().trim();
     var newDestination = $('#destination').val().trim();
-    var newTrainTime = moment($('#firstTrainTime').val().trim(), 'h:mm:ss a').format('X');
+    var newTrainTime = moment($('#firstTrainTime').val().trim(), 'HH:mm').format('X');
     var newFrequency = $('#frequency').val().trim();
 
     // local temporary object to hold user input
