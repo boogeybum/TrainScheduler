@@ -1,6 +1,6 @@
 // declare variables
-var currentTime = moment().format('dddd MMMM Do YYYY');
-// var currentTime = moment().format('dddd MMMM Do YYYY, h:mm:ss a');
+// var currentTime = moment().format('dddd MMMM Do YYYY');
+var currentTime = moment().format('dddd MMMM Do YYYY, h:mm:ss a');
 
 var config = {
     apiKey: "AIzaSyCwPl3wdsmMNBeaWVuZ8DUq40tfGZReWcc",
@@ -74,17 +74,33 @@ database.ref().on('child_added', function(childSnapshot) {
     var readableTime = moment.unix(newTrainTime).format('h:mm a');
     console.log(readableTime);
 
-    // calculate time to next train arrival
-    var nextArrival = '8:00pm';
+    // setup to calculate time of next train arrival and number of minutes remaining until next train arrival
+    var newTrainTimeConverted = moment(newTrainTime, 'HH:mm').subtract(1, 'years');
+    console.log(newTrainTimeConverted);
+
+    var timeNow = moment();
+    console.log('CURRENT TIME: ' + moment(timeNow).format('hh:mm a'));
+
+    var diffTime = moment().diff(moment(newTrainTimeConverted), 'minutes');
+    console.log('DIFFERENCE IN TIME: ' + diffTime);
+
+    var timeRemain = diffTime % newFrequency;
+    console.log(timeRemain);
 
     // calculate minutes remaining until next train arrival
-    var timeToNext = '7';
+    var timeToNext = newFrequency - timeRemain;
+    console.log('MINUTES TILL TRAIN: ' + timeToNext);
+
+    // calculate time of next train arrival
+    var nextArrival = moment().add(timeToNext, 'minutes');
+    var nextTrain = moment(nextArrival).format('HH:mm');
+    console.log('ARRIVAL TIME: ' + moment(nextArrival).format('hh:mm a'));
 
     var newRow = $('<tr>').append(
         $('<td>').text(newTrainName),
         $('<td>').text(newDestination),
         $('<td>').text(newFrequency),
-        $('<td>').text(nextArrival),
+        $('<td>').text(nextTrain),
         $('<td>').text(timeToNext)
 
     );
