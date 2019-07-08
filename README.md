@@ -12,6 +12,8 @@ A train schedule that stores input in Firebase and shows train arrival times.
 ## About
 * Utilizing Firebase for the database, this form saves the data input into the form by the user and then retrieves the data from firebase and adds the data to the schedule table. Based on the train start time and frequency it calculates the time of the next arrival and the minutes remaining until that arrival and also displays these values in the html document. 
 
+<img src="assets/images/TrainScheduler.JPG" >
+
 ## License 
 * No license explicite or implied.
 
